@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidWdkMvp.iml" filepath="$PROJECT_DIR$/AndroidWdkMvp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseapp/baseapp.iml" filepath="$PROJECT_DIR$/baseapp/baseapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dodata/dodata.iml" filepath="$PROJECT_DIR$/dodata/dodata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewactivity/viewactivity.iml" filepath="$PROJECT_DIR$/viewactivity/viewactivity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewapp/viewapp.iml" filepath="$PROJECT_DIR$/viewapp/viewapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewfamilytree/viewfamilytree.iml" filepath="$PROJECT_DIR$/viewfamilytree/viewfamilytree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewmain/viewmain.iml" filepath="$PROJECT_DIR$/viewmain/viewmain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewmodel/viewmodel.iml" filepath="$PROJECT_DIR$/viewmodel/viewmodel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpost/viewpost.iml" filepath="$PROJECT_DIR$/viewpost/viewpost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewuser/viewuser.iml" filepath="$PROJECT_DIR$/viewuser/viewuser.iml" />
+    </modules>
+  </component>
+</project>

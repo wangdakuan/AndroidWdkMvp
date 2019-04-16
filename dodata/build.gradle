@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+def librarys = rootProject.ext.dodata
+def app = rootProject.ext.android
+
+android {
+
+    compileSdkVersion app.compileSdkVersion
+    defaultConfig {
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "String", "API_URL","\""+config.HTTP_URL+"\""
+    }
+}
+
+repositories {
+    flatDir {
+        dirs "libs"
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.robolectric:robolectric:3.1.2'
+    api librarys.okhttp
+    api librarys.rxjava
+    api librarys.rxandroid
+    api librarys.gson
+    api(name: 'okgo-release', ext: 'aar')
+    api(name: 'okrx2-release', ext: 'aar')
+    api project(':common')
+}

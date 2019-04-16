@@ -1,0 +1,1 @@
+include ':viewapp', ':dodata', ':common', ':baseapp', ':viewmodel', ':viewmain', ':viewuser', ':viewpost', ':viewfamilytree', ':viewactivity'

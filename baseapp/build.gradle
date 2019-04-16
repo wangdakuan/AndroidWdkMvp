@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.jakewharton.butterknife'
+
+def appcompat = rootProject.ext.appcompat
+def library = rootProject.ext.library
+def app = rootProject.ext.android
+
+android {
+    compileSdkVersion app.compileSdkVersion
+    defaultConfig {
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionName "1.0"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs', '../dodata/libs'
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+//    api appcompat.appcompat
+    annotationProcessor library.arouter_compiler
+    implementation library.butterknife
+    annotationProcessor library.butterknife_compiler
+    api library.glide
+    api project(':common')
+    implementation project(':viewmodel')
+}

@@ -1,0 +1,74 @@
+ext {
+    //Android 关键的版本管理配置
+    android = [
+            // 用于编译的SDK版本
+            compileSdkVersion: 28,
+            // 最低支持Android版本
+            minSdkVersion    : 14,
+            // 目标版本
+            targetSdkVersion : 28,
+            // 设置是否使用混淆
+            MINIFY_ENABLED   : true,
+            MINIFY_DISABLED  : false,
+            // 应用程序包名
+            applicationId    : 'com.wdk',
+            /**
+             * 签名文件数据
+             */
+            keystorefile     : 'xxx',
+            storePassword    : 'xxx',
+            keyAlias         : 'xxx',
+            keyPassword      : 'xxx',
+            /**
+             * 版本更新
+             */
+            versionCode      : 2,
+            versionName      : "1.0.1"
+    ]
+
+    //dodata 关键的jar包
+    dodata = [
+            //请求OKHTTP
+            okhttp   : 'com.squareup.okhttp3:okhttp:3.8.1',
+            //rxjava
+            rxjava   : 'io.reactivex.rxjava2:rxjava:2.1.1',
+            //rxandroid
+            rxandroid: 'io.reactivex.rxjava2:rxandroid:2.0.1',
+            //数据解析json
+            gson     : 'com.google.code.gson:gson:2.8.0',
+    ]
+
+    //公共类的关键jar包
+    appcompat = [
+            appcompat    : 'com.android.support:appcompat-v7:28.0.0',
+            bottom_navigation_bar: 'com.ashokvarma.android:bottom-navigation-bar:2.1.0',
+    ]
+
+    library = [
+            //布局初始化
+            butterknife          : 'com.jakewharton:butterknife:8.8.1',
+            butterknife_compiler : 'com.jakewharton:butterknife-compiler:8.8.1',
+            //图片加载
+            glide                : 'com.github.bumptech.glide:glide:3.7.0',
+            //阿里路由用于 module
+            arouter              : 'com.alibaba:arouter-api:1.3.1',
+            arouter_compiler     : 'com.alibaba:arouter-compiler:1.1.4',
+            //分包
+            multidex             : 'com.android.support:multidex:1.0.2',
+    ]
+
+    //配置项目的请求接口与日志打印
+    config = [
+            /**
+             * 打正式包的时候需要改为false
+             * true 为测试包可以切换环境，打印请求日志
+             * false 为正式包，禁止切换环境逻辑，禁止打印请求日志
+             */
+            LOG_SHOWS_DEBUG: 'true',  //是否打印log日志/是否是测试环境
+            /**
+             * 接口日志
+             */
+            HTTP_URL       : 'https://sa-api.lekaihua8.com:20020/ace-sa'  //请求接口
+    ]
+
+}

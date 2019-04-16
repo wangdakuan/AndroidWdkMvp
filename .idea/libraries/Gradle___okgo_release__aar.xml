@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: :okgo-release:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/okgo-release.aar/c2388a2a4e337263c16d015d30095e5f/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/okgo-release.aar/c2388a2a4e337263c16d015d30095e5f/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

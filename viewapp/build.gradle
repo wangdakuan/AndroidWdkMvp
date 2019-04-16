@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.jakewharton.butterknife'
+def app = rootProject.ext.android
+
+android {
+
+    compileSdkVersion app.compileSdkVersion
+    defaultConfig {
+        applicationId app.applicationId
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode app.versionCode
+        versionName app.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//    }
+    signingConfigs {
+        release {
+//            storeFile file(app.keystorefile)
+//            storePassword app.storePassword
+//            keyAlias app.keyAlias
+//            keyPassword app.keyPassword
+        }
+        debug {
+//            storeFile file(app.keystorefile)
+//            storePassword app.storePassword
+//            keyAlias app.keyAlias
+//            keyPassword app.keyPassword
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false  //关闭手机调试
+            jniDebuggable false //关闭JNI调试
+            signingConfig signingConfigs.release
+            renderscriptDebuggable false //debug脚本访问
+            renderscriptOptimLevel 3
+            minifyEnabled true  //开启混淆代码
+            shrinkResources true //删除无用的资源文件
+            pseudoLocalesEnabled false //禁止伪地区启用
+            multiDexEnabled true //添加多 dex分包支持
+            zipAlignEnabled true //开启zip优化
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true  //开启手机调试
+            jniDebuggable false //关闭JNI调试
+            signingConfig signingConfigs.debug
+            renderscriptDebuggable true  //debug脚本访问
+            minifyEnabled false
+            zipAlignEnabled false
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
+    dexOptions{
+        preDexLibraries = false
+        jumboMode true
+    }
+
+}
+
+repositories {
+    flatDir {
+//        dirs 'libs',"../dodata"
+        dirs 'libs','../dodata/libs'
+    }
+}
+
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+    implementation project(':baseapp')
+    if(!isModule.toBoolean()) {
+        implementation project(':viewmain')
+        implementation project(':viewuser')
+        implementation project(':viewpost')
+        implementation project(':viewfamilytree')
+        implementation project(':viewactivity')
+    }
+}

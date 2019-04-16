@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+
+def appcompat = rootProject.ext.appcompat
+def app = rootProject.ext.android
+def library = rootProject.ext.library
+
+android {
+    compileSdkVersion app.compileSdkVersion
+    defaultConfig {
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionName "1.0"
+        buildConfigField "boolean", "LOG_SHOWS_DEBUG", config.LOG_SHOWS_DEBUG
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.robolectric:robolectric:3.1.2'
+    api library.arouter
+    annotationProcessor library.arouter_compiler
+    api appcompat.appcompat
+}
